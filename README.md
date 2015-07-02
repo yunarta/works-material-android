@@ -1,2 +1,2 @@
-# works-builder-android
-Minimal builder classes and resources for Android
+# works-http-cache-android
+New works-http-cache for Android

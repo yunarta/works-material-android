@@ -1,1 +1,2 @@
-include ':library'
+include ':works-builder'
+project(':works-builder').projectDir = new File('library')

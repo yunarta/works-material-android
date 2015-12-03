@@ -1,8 +1,1 @@
-include ':works-databinding'
-project(':works-databinding').projectDir = new File('databinding')
-
-include ':works-builder'
-project(':works-builder').projectDir = new File('library')
-
-include ':works-material'
-project(':works-material').projectDir = new File('material')
+rootProject.name = 'works-material'

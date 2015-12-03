@@ -10,8 +10,52 @@ buildscript {
     }
 }
 
-allprojects {
-    repositories {
-        jcenter()
+apply plugin: 'com.android.library'
+
+group 'com.mobilesolutionworks'
+version '1.1.0'
+
+apply from: ('https://raw.githubusercontent.com/yunarta/works-gradle-script/master/auto-configure.gradle')
+
+android {
+    compileSdkVersion autoCompileSdkVersion(23)
+    buildToolsVersion autoBuildToolsVersion('23.0.2')
+
+    defaultConfig {
+        minSdkVersion 1
+        targetSdkVersion autoCompileSdkVersion(23)
+        versionCode 1
+        versionName version
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
     }
 }
+
+dependencies {
+}
+
+apply from: 'https://raw.githubusercontent.com/yunarta/works-gradle-script/master/publish-works.gradle'
+
+worksPublish {
+    bintray {
+        repo = 'maven'
+        name = group + ':works-material'
+    }
+
+    developer {
+        id = 'yunarta'
+        name = 'Yunarta Kartawahyudi'
+        email = 'yunarta.kartawahyudi@gmail.com'
+    }
+
+    siteUrl = 'https://github.com/yunarta/works-versioning-android'
+    gitUrl = 'https://github.com/yunarta/works-versioning-android.git'
+
+}
+
+apply from: 'https://raw.githubusercontent.com/yunarta/works-gradle-script/master/publish-bintray-for-android-lib.gradle'

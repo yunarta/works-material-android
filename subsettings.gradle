@@ -1,0 +1,2 @@
+include ':works-material'
+project(':works-material').projectDir = new File('works-material/.')

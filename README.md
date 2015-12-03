@@ -1,2 +1,3 @@
-# works-http-cache-android
-New works-http-cache for Android
+# Works Material for Android
+
+Collection of Android Material resources

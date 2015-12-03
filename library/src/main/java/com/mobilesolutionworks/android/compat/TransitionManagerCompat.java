@@ -25,7 +25,7 @@ import android.view.ViewGroup;
 /**
  * Created by yunarta on 19/7/15.
  */
-public class TransitionCompat
+public class TransitionManagerCompat
 {
     public static void beginDelayedTransition(ViewGroup viewGroup)
     {

@@ -22,7 +22,7 @@ android {
     buildToolsVersion autoBuildToolsVersion('23.0.2')
 
     defaultConfig {
-        minSdkVersion 1
+        minSdkVersion 14
         targetSdkVersion autoCompileSdkVersion(23)
         versionCode 1
         versionName version
@@ -37,6 +37,18 @@ android {
 }
 
 dependencies {
+}
+
+project.afterEvaluate {
+    project.android.libraryVariants.all {variant ->
+        variant.outputs.each { output ->
+            def outputFile = output.outputFile
+            if (outputFile != null && outputFile.name.endsWith('.aar')) {
+                def fileName = "${archivesBaseName}-${version}.aar"
+                output.outputFile = new File(outputFile.parent, fileName)
+            }
+        }
+    }
 }
 
 apply from: 'https://raw.githubusercontent.com/yunarta/works-gradle-script/master/publish-works.gradle'

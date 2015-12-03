@@ -1,7 +1,7 @@
 apply plugin: 'com.android.library'
 
 group 'com.mobilesolutionworks'
-version '1.0.1'
+version '1.1.0'
 
 apply from: ('https://raw.githubusercontent.com/yunarta/works-gradle-script/master/auto-configure.gradle')
 

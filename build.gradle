@@ -40,7 +40,7 @@ dependencies {
 }
 
 project.afterEvaluate {
-    project.android.libraryVariants.all {variant ->
+    project.android.libraryVariants.all { variant ->
         variant.outputs.each { output ->
             def outputFile = output.outputFile
             if (outputFile != null && outputFile.name.endsWith('.aar')) {

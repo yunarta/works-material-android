@@ -1,8 +1,9 @@
-apply from: ('jenkins.groovy')
-
 buildscript {
     repositories {
         jcenter()
+        maven {
+            url 'http://dl.bintray.com/yunarta-kartawahyudi/maven'
+        }
         maven {
             url 'http://dl.bintray.com/yunarta-kartawahyudi/snapshot'
         }
@@ -10,17 +11,19 @@ buildscript {
 
     dependencies {
         classpath "com.android.tools.build:gradle:2.0.0-alpha2"
-        classpath 'com.mobilesolutionworks:works-bintray-gradle:1.0.5'
+        classpath 'com.mobilesolutionworks:works-bintray-gradle:1.0.7'
+        classpath 'com.mobilesolutionworks:works-jenkins-android-builder:1.0.0'
         classpath 'com.mobilesolutionworks:works-autoconfig:1.0.0'
     }
 }
 
 apply plugin: 'com.android.library'
-apply plugin: 'com.mobilesolutionworks.bintray-publish'
 apply plugin: 'com.mobilesolutionworks.android-autoconfig'
+apply plugin: 'com.mobilesolutionworks.jenkins-configure'
+apply plugin: 'com.mobilesolutionworks.bintray-publish'
 
 group 'com.mobilesolutionworks'
-version '1.1.1'
+version jenkins.version("1.1.1")
 
 android {
     compileSdkVersion autoConfig.sdk(23)
@@ -29,7 +32,8 @@ android {
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion autoConfig.sdk(23)
-        versionCode 1
+
+        versionCode jenkins.build(1)
         versionName version
     }
 
@@ -44,10 +48,8 @@ android {
 dependencies {
 }
 
-
 worksPublish {
     bintray {
-        repo = 'maven'
         name = group + ':works-material'
     }
 

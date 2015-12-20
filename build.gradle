@@ -11,7 +11,7 @@ buildscript {
 
     dependencies {
         classpath "com.android.tools.build:gradle:2.0.0-alpha2"
-        classpath 'com.mobilesolutionworks:works-bintray-gradle:1.0.7'
+        classpath 'com.mobilesolutionworks:works-bintray-publish:1.0.0'
         classpath 'com.mobilesolutionworks:works-jenkins-android-builder:1.0.0'
         classpath 'com.mobilesolutionworks:works-autoconfig:1.0.0'
     }
@@ -23,7 +23,7 @@ apply plugin: 'com.mobilesolutionworks.jenkins-configure'
 apply plugin: 'com.mobilesolutionworks.bintray-publish'
 
 group 'com.mobilesolutionworks'
-version jenkins.version("1.1.1")
+version jenkins.version("1.1.2")
 
 android {
     compileSdkVersion autoConfig.sdk(23)
@@ -60,6 +60,6 @@ worksPublish {
         email = 'yunarta.kartawahyudi@gmail.com'
     }
 
-    siteUrl = 'https://github.com/yunarta/works-versioning-android'
-    gitUrl = 'https://github.com/yunarta/works-versioning-android.git'
+    siteUrl = 'https://github.com/yunarta/works-material-android'
+    gitUrl = 'https://github.com/yunarta/works-material-android.git'
 }
